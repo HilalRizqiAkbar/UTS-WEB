@@ -1,6 +1,7 @@
 /* margin and width */
 .w20{
     width: 20%;
+    height: 50px;
 }
 .w25{
     width: 25%;
@@ -16,6 +17,7 @@
 }
 .w80{
     width: 80%;
+    position: relative;
 }
 .h100{
     height: 100%;

@@ -39,16 +39,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="item of list_user" :key="item.id">
+                        <tr v-for="item of list_user" :key="item.id ">
                             <td class="center">{{ item.plannogramName }}</td>
-                            <td class="center">{{ item.username }}
+                            <td class="center">{{ item.image }}
                                 <div class="mt5">
                                     <router-link to="/edit-plannogram">
-                                        <img src="https://static.miraheze.org/tampvanwiki/0/0a/Rusdi_Omaygot.png">
+                                        <img :src=item.image alt="User Image" class="plannogram-img">
                                     </router-link>
                                 </div>
                             </td>
-                            <td class="center">{{ item.email }}</td>
+                            <td class="center">{{ item.hari }}</td>
                             <td class="center">
                                 <div v-if="item.role === 1">
                                     <label class="label-green">{{item.validFrom}}</label>
@@ -86,9 +86,9 @@
                                     </router-link>
                                 </div>
                                 <div class="mt5">
-                                    <img src="../../assets/icons/delete.svg">
+                                    <img src="../../assets/icons/delete.svg" v-on:click="deleteItem()">
                                 </div>
-                            </td>
+                            </td>     
                         </tr>
                     </tbody>
                 </table>
@@ -99,7 +99,6 @@
 
 <script>
 import Menu from "../../components/menu.vue"
-
 export default {
 	name: 'list-plannogram',
 	components: {
@@ -111,8 +110,8 @@ export default {
                 {
                     id: "1",
                     plannogramName: "Flash Sale minggu ini",
-                    username: "",
-                    email: "Senin",
+                    image: require('@/assets/images/flash sale.png'),
+                    hari: "Senin",
                     validFrom: "01-06-2021",
                     validUntil: "03-06-2021",
                     status: "Active",
@@ -120,17 +119,16 @@ export default {
                 },
                 {
                     id: "2",
-                    plannogramName: "Haifah Nur Zakiah",
-                    username: "",
-                    email: "Rabu",
+                    plannogramName: "Produk Terbaru",
+                    image: require('@/assets/images/iphone X.png'),
+                    hari: "Rabu",
                     validFrom: "04-06-2021",
                     validUntil: "04-06-2021",
                     status: "Active",
                     role: 2
-                },
-
-            ]
-        }
-    }
+                }         
+            ],
+        } 
+    },
 }
 </script>
